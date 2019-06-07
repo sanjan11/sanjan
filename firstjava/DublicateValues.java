@@ -1,32 +1,30 @@
-package firstjava;
+package javatestcases;
 
-import java.util.Arrays;
+import java.awt.List;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 public class DublicateValues {
-	static int Remove(int a[]){
-		int a1=a.length;
-		if(a1==0||a1==1)
-			return a1;
-		int[] temp=new int[a1];
-		int j=0;
-		for(int i=0;i<a1-1;i++){
-			if(a[i]!=a[i+1])
-				temp[j++]=a[i];
+	
+	public static int Remove(int a[]){
+	try{
+		HashSet<Integer> l=new HashSet<Integer>();
+		for(int i=0;i<a.length;i++){
+			if(l.add(a[i])){
+				System.out.println(a[i]);
+			}
 		}
-			temp[j++]=a[a1-1];
-			for(int i=0;i<j;i++)
-				a[i]=temp[i];
-			return j;
+		}catch(NullPointerException e){
+			System.out.println(e);
+		}
+	
+		return 0;
 		
 	}
-	
+
 	public static void main(String[] args) {
-		int a[]={2,2,3,2,1,3,4,4,1};
-		Arrays.sort(a);
-	
-		int a1 = Remove(a);
-		for(int i=0;i<a1;i++)
-			System.out.println(a[i]);
+		int a[]={1,2,1,3,2,4,3,4,2,5};
+		Remove(a);
 	}
 
 }
